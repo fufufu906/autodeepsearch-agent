@@ -1,0 +1,6 @@
+INFO:     Started server process [13072]
+INFO:     Waiting for application startup.
+2026-05-12 16:21:50.924 | INFO     | src.main:log_startup_configuration:110 - DeepResearch configuration loaded: provider=custom model=qwen-plus base_url=https://dashscope.aliyuncs.com/compatible-mode/v1 search_api=duckduckgo max_loops=3 fetch_full_page=True tool_calling=False strip_thinking=True api_key=sk-a...65b7
+[32m2026-05-12 16:21:50[0m | [1mINFO[0m | [36musing_function:log_startup_configuration[0m | [36mmain.py:110[0m | [1mDeepResearch configuration loaded: provider=custom model=qwen-plus base_url=https://dashscope.aliyuncs.com/compatible-mode/v1 search_api=duckduckgo max_loops=3 fetch_full_page=True tool_calling=False strip_thinking=True api_key=sk-a...65b7[0m
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)

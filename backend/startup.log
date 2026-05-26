@@ -1,0 +1,13 @@
+﻿⚠️ TAVILY_API_KEY 未设置
+⚠️ SERPAPI_API_KEY 未设置
+⚠️ 没有可用的 Tavily/SerpApi 搜索源，将回退到通用模式
+
+INFO:     Started server process [22960]
+INFO:     Waiting for application startup.
+2026-05-12 16:14:10.502 | INFO     | src.main:log_startup_configuration:110 - DeepResearch configuration loaded: provider=%s model=%s base_url=%s search_api=%s max_loops=%s fetch_full_page=%s tool_calling=%s strip_thinking=%s api_key=%s
+[32m2026-05-12 16:14:10[0m | [1mINFO[0m | [36musing_function:log_startup_configuration[0m | [36mmain.py:110[0m | [1mDeepResearch configuration loaded: provider=%s model=%s base_url=%s search_api=%s max_loops=%s fetch_full_page=%s tool_calling=%s strip_thinking=%s api_key=%s[0m
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): [winerror 10048] 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+

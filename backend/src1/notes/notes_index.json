@@ -1,0 +1,109 @@
+{
+  "notes": [
+    {
+      "id": "note_20260512_163101_0",
+      "title": "研究报告：探索多模块模型",
+      "type": "conclusion",
+      "tags": [
+        "deep_research",
+        "report"
+      ],
+      "created_at": "2026-05-12T16:31:01.239515"
+    },
+    {
+      "id": "note_20260519_114640_1",
+      "title": "研究报告：探索agent开发",
+      "type": "conclusion",
+      "tags": [
+        "deep_research",
+        "report"
+      ],
+      "created_at": "2026-05-19T11:46:40.876385"
+    },
+    {
+      "id": "note_20260519_124338_2",
+      "title": "任务 3: Agent开发中的关键挑战与解决方案",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_3"
+      ],
+      "created_at": "2026-05-19T12:43:38.397829"
+    },
+    {
+      "id": "note_20260519_124339_3",
+      "title": "任务 1: Agent开发的核心概念与架构范式",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_1"
+      ],
+      "created_at": "2026-05-19T12:43:39.875584"
+    },
+    {
+      "id": "note_20260519_124340_4",
+      "title": "任务 4: 典型Agent应用案例与行业实践分析",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_4"
+      ],
+      "created_at": "2026-05-19T12:43:40.147928"
+    },
+    {
+      "id": "note_20260519_124342_5",
+      "title": "任务 2: 主流Agent开发框架与工具链评估",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_2"
+      ],
+      "created_at": "2026-05-19T12:43:42.960103"
+    },
+    {
+      "id": "note_20260519_124449_6",
+      "title": "任务 2: 主流Agent开发框架与工具链评估",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_2"
+      ],
+      "created_at": "2026-05-19T12:44:49.463010"
+    },
+    {
+      "id": "note_20260519_124451_7",
+      "title": "任务 1: Agent开发的核心概念与架构范式",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_1"
+      ],
+      "created_at": "2026-05-19T12:44:51.876468"
+    },
+    {
+      "id": "note_20260519_124457_8",
+      "title": "任务 3: Agent开发中的关键挑战与解决方案",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_3"
+      ],
+      "created_at": "2026-05-19T12:44:57.290920"
+    },
+    {
+      "id": "note_20260519_124503_9",
+      "title": "任务 4: 典型Agent应用案例与行业实践分析",
+      "type": "task_state",
+      "tags": [
+        "deep_research",
+        "task_4",
+        "summary_complete"
+      ],
+      "created_at": "2026-05-19T12:45:03.960135"
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-05-12T15:33:33.843457",
+    "total_notes": 10
+  }
+}
