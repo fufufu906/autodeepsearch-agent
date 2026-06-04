@@ -1,4 +1,4 @@
-﻿# --- Python ---
+# --- Python ---
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -27,3 +27,6 @@ Thumbs.db
 
 # --- Misc ---
 =*
+
+# --- Runtime logs ---
+startup*.log

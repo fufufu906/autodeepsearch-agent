@@ -1,11 +1,12 @@
 import json
+from typing import Any
 
 from hello_agents import ToolAwareSimpleAgent
 
 
 from src1.config import Configuration
-from src1.models import SummaryState
 from src1.utils import strip_thinking_tokens
+
 
 
 class ReportingService:
@@ -15,8 +16,10 @@ class ReportingService:
                  )->None:
         self._agent = report_agent
         self._config = config
-
-    def generate_report(self,state: SummaryState)->str:
+    #集并整理前面所有并发子任务的搜索结果和笔记索引，
+    # 打包成一份高信息密度的终极提示词（Prompt）喂给“报告撰写专家”，
+    # 指挥它去阅读所有落盘的笔记，融会贯通后撰写出最终的深度研究报告。
+    def generate_report(self, state: Any) -> str:
         tasks_block = []
         for task in state.todo_items:
             summary_block = task.summary or "暂无可用信息"

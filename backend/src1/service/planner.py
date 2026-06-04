@@ -6,11 +6,13 @@ from typing import List, Any, Optional
 from hello_agents import ToolAwareSimpleAgent
 
 from src1.config import Configuration
-from src1.models import SummaryState, TodoItem
+from src1.models import TodoItem
 from src1.prompts import todo_planner_instructions, get_current_date
 from src1.utils import strip_thinking_tokens
 
 logger = logging.getLogger(__name__)
+
+
 
 TOOL_CALL_PATTERN = re.compile(
     r"\[TOOL_CALL:(?P<tool>[^:]+):(?P<body>[^\]]+)\]",
@@ -23,7 +25,7 @@ class PlanningService:
         self._agent = planner_agent
         self._config = config
 
-    def plan_todo_list(self,state: SummaryState)-> List[TodoItem]:
+    def plan_todo_list(self, state: Any) -> List[TodoItem]:
 
         prompt = todo_planner_instructions.format(
             current_date= get_current_date(),
@@ -61,7 +63,7 @@ class PlanningService:
         return  todo_items
 
     @staticmethod
-    def create_fallback_task(state :SummaryState)->TodoItem:
+    def create_fallback_task(state: Any) -> TodoItem:
 
         return TodoItem(
             id=1,
@@ -100,6 +102,7 @@ class PlanningService:
 
         return tasks
 
+    # 把中间那段参数字符串安全、准确地挖出来，并把它翻译成 Python 能够直接使用的字典（dict）格式
     def _extract_tool_payload(self, text: str) -> Optional[dict[str, Any]]:
 
         match = TOOL_CALL_PATTERN.search(text)
@@ -120,7 +123,7 @@ class PlanningService:
         payload: dict[str,Any] = {}
 
         for part in parts:
-            if "=" not in parts:
+            if "=" not in part:
                 continue
             key,value = part.split("=",1)
             payload[key.strip()] = value.strip()

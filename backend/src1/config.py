@@ -95,7 +95,7 @@ class Configuration(BaseModel):
 
         raw_values: dict[str, Any] = {}
 
-        # Load values from environment variables based on field names
+        # 根据字段名称从环境变量加载值
         for field_name in cls.model_fields.keys():
             env_key = field_name.upper()
             if env_key in os.environ:

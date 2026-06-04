@@ -4,7 +4,8 @@ from __future__ import annotations
 import json
 
 from src1.models import TodoItem
-
+#在系统运行过程中，根据子任务（TodoItem）的状态，动态地为大模型（Agent）
+# 生成一段包含“可读、可执行 JSON 指令”的协作行为指南。这完美对应了你项目描述里的核心贡献二——“外部化长时记忆管理”
 def build_note_guidance(task: TodoItem)-> str:
 
     tags_list = ["deep_research", f"task_{task.id}"]

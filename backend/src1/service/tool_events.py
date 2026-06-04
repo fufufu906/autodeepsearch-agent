@@ -5,7 +5,9 @@ from pathlib import Path
 from threading import Lock
 from typing import Any, Optional, Callable, cast
 
-from src1.models import SummaryState, TodoItem
+from src1.models import TodoItem
+
+
 
 logger = logging.getLogger(__name__)
 @dataclass
@@ -74,8 +76,10 @@ class ToolCallTracker:
         if sink is not None:
             event_sink = cast(Callable[[dict[str, Any]], None], sink)
             event_sink(self._build_payload(event, step=None))
-
-    def drain(self, state: SummaryState, *, step: Optional[int] = None) -> list[dict[str, Any]]:
+    #把后台多线程环境中、由大模型触发的各种外部工具事件（如正在读写 NoteTool 产生的中间日志）中尚未消费的增量数据提取出来，
+    # 一方面就地将新生成的 note_id 强行回填绑定到全局的图状态 state.todo_items 中，
+    # 另一方面将这些增量事件打包，准备通过 SSE 无阻塞地实时推送给前端。
+    def drain(self, state: Any, *, step: Optional[int] = None) -> list[dict[str, Any]]:
         """提取尚未消费的工具调用事件，并同步任务的 note_id。"""
 
         with self._lock:

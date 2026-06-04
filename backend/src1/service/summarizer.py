@@ -1,15 +1,16 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterator
-from typing import Tuple
+from typing import Tuple, Any
 
 from hello_agents import ToolAwareSimpleAgent
 
-from src1.models import SummaryState, TodoItem
+from src1.models import TodoItem
 from src1.config import Configuration
 from src1.utils import strip_thinking_tokens
 from src1.service.note import build_note_guidance
 from src1.service.text_processing import strip_tool_calls
+
 
 
 
@@ -21,8 +22,8 @@ class SummarizationService:
                 self._agent_factory = summarizer_factory
                 self._config = config
 
-
-    def summarize_task(self,state: SummaryState, task: TodoItem,context: str)->str:
+    #“单任务情报提炼与脱水核心（Task Summarizer Engine）”
+    def summarize_task(self, state: Any, task: TodoItem, context: str) -> str:
         prompt = self._build_prompt( state,task,context)
         agent = self._agent_factory()
 
@@ -40,9 +41,9 @@ class SummarizationService:
 
 
     # “实时渲染（看过程）”与“数据持久化（要结果）”
-    def stream_task_summary(self,state: SummaryState,
+    def stream_task_summary(self, state: Any,
                             task: TodoItem, context: str
-                            )->Tuple[Iterator[str], Callable[[], str]]:
+                            ) -> Tuple[Iterator[str], Callable[[], str]]:
         prompt = self._build_prompt(state, task, context)
         remove_thinking = self._config.strip_thinking_tokens
         raw_buffer = ""
@@ -104,8 +105,8 @@ class SummarizationService:
 
         return generator(), get_summary
 
-    def _build_prompt(self, state: SummaryState, task: TodoItem, context: str) -> str:
-        """Construct the summarization prompt shared by both modes."""
+    def _build_prompt(self, state: Any, task: TodoItem, context: str) -> str:
+        """构建两种模式共享的总结提示."""
 
         return (
             f"任务主题：{state.research_topic}\n"

@@ -17,6 +17,8 @@ export interface ResearchStreamEvent {
 export interface StreamOptions {
   signal?: AbortSignal;
 }
+//建立并维护与 FastAPI 后端的 Server-Sent Events (SSE) 长连接，
+// 安全地接收后端像打字机一样吐出的数据流，并将其转化为结构化的 JavaScript 对象喂给前端 UI
 export async function runResearchStream(
   payload: ResearchRequest,
   onEvent: (event: ResearchStreamEvent) => void,

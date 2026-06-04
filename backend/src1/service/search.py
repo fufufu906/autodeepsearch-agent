@@ -16,6 +16,7 @@ def _is_empty_search_error(exc: Exception) -> bool:
     text = str(exc).lower()
     return "no results found" in text
 
+#全网混合检索的统一网关（Search Gateway）”角色
 def dispatch_search(
     query: str,
     config: Configuration,

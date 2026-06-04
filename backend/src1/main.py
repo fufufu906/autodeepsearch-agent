@@ -4,7 +4,7 @@ import json
 import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
-from typing import Any, AsyncIterator, Dict, Iterator, Optional
+from typing import Any, AsyncIterator, Dict, Optional
 
 # 如果安装了 python-dotenv，则从 backend/.env 加载环境变量。
 # 这确保运行 `python src1/main.py` 时使用的设置与以下情况相同：
@@ -162,16 +162,16 @@ def create_app()-> FastAPI:
         )
 
     @app.post("/research/stream")
-    def stream_research(payload: ResearchRequest) -> StreamingResponse:
+    async def stream_research(payload: ResearchRequest) -> StreamingResponse:
         try:
             config = _build_config(payload)
             agent = DeepResearchAgent(config=config)
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
 
-        def event_iterator( )->Iterator[str]:
+        async def event_iterator() -> AsyncIterator[str]:
             try:
-                for event in agent.run_stream(payload.topic):
+                async for event in agent.run_stream(payload.topic):
                     yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
             except Exception as exc:  # pragma: no cover - defensive guardrail
                 logger.exception("Streaming research failed")
