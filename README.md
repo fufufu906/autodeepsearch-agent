@@ -140,6 +140,28 @@ event: tool_call_event
 data: {"agent": "SearchWorker_1", "tool": "GoogleSearch", "status": "running", "query": "固态电池电解质"}
 
 ```
+## ⚙️ 系统配置 (.env)
+
+在启动项目前，需在 `backend/` 目录下配置核心环境变量：
+
+```env
+# 大模型配置 (默认接入支持 Tool Calling 的基座模型)
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxx
+LLM_MODEL=gpt-4o  # 或配置 Gemini API 等
+
+# 检索引擎配置
+TAVILY_API_KEY=tvly-xxxxxxxxxxxxxxxxxxxxxx
+
+# 系统并发与调度水位
+MAX_CONCURRENT_WORKERS=5          # Map 阶段最大并发 Worker 数量
+THREAD_POOL_MAX_WORKERS=50        # 后端物理线程池总容量限制 (防 OOM)
+
+# 持久化存储路径
+WORKSPACE_DIR=./workspace/notes   # NoteTool 物理落盘根目录
+
+```
+
+---
 
 ---
 
